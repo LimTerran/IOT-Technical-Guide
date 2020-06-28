@@ -37,6 +37,8 @@
         <module>IOT-Guide-MQTT</module>
         <module>IOT-Guide-HTTP</module>
         <module>IOT-Guide-Gateway</module>
+        <!--物联网网关设备-Modbus协议-->
+        <module>IOT-Guide-Gateway-Modbus</module>
 
         <!--EN Internet of Things concept -->
         <!--CN 物联网概念-->
@@ -62,6 +64,7 @@
         <module>IOT-Guide-Kubernates</module>
         <module>IOT-Guide-HTTP-Test</module>
         <module>IOT-Guide-Flink</module>
+        <module>IOT-Guide-Custom-Protocol</module>
     </modules>
 
     <url>https://sanshengshui.github.io/</url>
@@ -79,7 +82,7 @@
         <junit.version>4.12</junit.version>
         <mockito.version>1.9.5</mockito.version>
         <gson.version>2.6.2</gson.version>
-        <guava.version>23.0</guava.version>
+        <guava.version>29.0-jre</guava.version>
         <spring-boot.version>2.0.5.RELEASE</spring-boot.version>
         <netty-all.version>4.1.42.Final</netty-all.version>
         <lombok.version>1.16.18</lombok.version>
@@ -89,18 +92,23 @@
         <postgresql.version>42.2.5</postgresql.version>
         <h2database.version>1.4.197</h2database.version>
         <flink.version>1.9.0</flink.version>
+        <paho.version>1.2.4</paho.version>
     </properties>
 
     <dependencies>
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>${lombok.version}</version>
         </dependency>
     </dependencies>
 
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+            </dependency>
             <dependency>
                 <groupId>com.sanshengshui</groupId>
                 <artifactId>IOT-Guide-TSL</artifactId>
@@ -205,6 +213,11 @@
                 <version>${spring-boot.version}</version>
             </dependency>
             <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-websocket</artifactId>
+                <version>${spring-boot.version}</version>
+            </dependency>
+            <dependency>
                 <groupId>mysql</groupId>
                 <artifactId>mysql-connector-java</artifactId>
                 <version>${mysql.version}</version>
@@ -264,6 +277,11 @@
                 <groupId>org.apache.flink</groupId>
                 <artifactId>flink-clients_2.11</artifactId>
                 <version>${flink.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.eclipse.paho</groupId>
+                <artifactId>org.eclipse.paho.client.mqttv3</artifactId>
+                <version>${paho.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
